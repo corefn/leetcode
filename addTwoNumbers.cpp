@@ -21,7 +21,13 @@ struct ListNode {
     ListNode *next;
     ListNode(int x) : val(x), next(NULL) {}
 };
- 
+/*
+ * this problem is easy to solve, p1 points to l1 and p2 points to l2:
+ *
+ * 	1. if p1 != NULL and p2 != NULL, sum = *p1 + *p2 + carry;
+ *
+ * 	2. if p1 = NULL or p2 == NULL, sum = 0 + *p1 + carry or sum = *p1 + 0 + carry.
+ */
 class Solution {
 public:
     ListNode *addTwoNumbers(ListNode *l1, ListNode *l2) {
@@ -76,17 +82,17 @@ private:
 int main()
 {
 	Solution s;
-	ListNode *test1 = new ListNode(2);
-	ListNode *test2 = new ListNode(4);
-	ListNode *test3 = new ListNode(3);
+	ListNode *test1 = new ListNode(1);
+	ListNode *test2 = new ListNode(8);
+//istNode *test3 = new ListNode(3);
 	test1->next = test2;
-	test2->next = test3;
+//est2->next = test3;
 
-	ListNode *test4 = new ListNode(5);
-	ListNode *test5 = new ListNode(6);
-	ListNode *test6 = new ListNode(4);
-	test4->next = test5;
-	test5->next = test6;
+	ListNode *test4 = new ListNode(0);
+	//stNode *test5 = new ListNode(6);
+	//stNode *test6 = new ListNode(4);
+	//st4->next = test5;
+	//st5->next = test6;
 
 	ListNode * result = s.addTwoNumbers(test1, test4);
 
