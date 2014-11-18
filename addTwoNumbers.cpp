@@ -36,7 +36,7 @@ public:
 		int carry	= 0;
 
 		ListNode *head	= NULL;
-		ListNode *p		= NULL;
+		ListNode *p	= NULL;
 
 		ListNode *head_of_l1 = l1;
 		ListNode *head_of_l2 = l2;
