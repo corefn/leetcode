@@ -84,15 +84,15 @@ int main()
 	Solution s;
 	ListNode *test1 = new ListNode(1);
 	ListNode *test2 = new ListNode(8);
-//istNode *test3 = new ListNode(3);
+	//ListNode *test3 = new ListNode(3);
 	test1->next = test2;
-//est2->next = test3;
+	//test2->next = test3;
 
 	ListNode *test4 = new ListNode(0);
-	//stNode *test5 = new ListNode(6);
-	//stNode *test6 = new ListNode(4);
-	//st4->next = test5;
-	//st5->next = test6;
+	//ListNode *test5 = new ListNode(6);
+	//ListNode *test6 = new ListNode(4);
+	//test4->next = test5;
+	//test5->next = test6;
 
 	ListNode * result = s.addTwoNumbers(test1, test4);
 
