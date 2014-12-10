@@ -14,7 +14,7 @@ using namespace std;
 class Solution {
 public:
 	/*
-	 * use  Dynamic programming, time complexity is O(n^2) and space complexity is also O(n^2):
+	 * use  Dynamic Programming, time complexity is O(n^2) and space complexity is also O(n^2):
 	 *
 	 * we use a two-dimensional arry table[1000][1000] to store some infomation:
 	 *
@@ -24,7 +24,7 @@ public:
 	 *
 	 * 		3. table[i][i] = 1, and table[i][i+1] = 1 if s[i] = s[i + 1].
 	 */
-	string longestPalindrome(string s) {
+	string longestPalindromeDP(string s) {
 		int n = s.size();
 		int longest_substr_begin = 0;
 		int max_len = 1;
@@ -54,6 +54,52 @@ public:
 		}
 
 		return s.substr(longest_substr_begin, max_len);
+	}
+
+	/*
+	 * use expand with one point center, time complexity is O(n^2) and space complexity is O(1):
+	 *
+	 * Given one string s, each character in this string is selected as the center, store the length
+	 *
+	 * of each center , note: the string "aba" is a palindrome and also the string "abba" is a programming. 
+	 */
+	string ExpandAroundCenter(const string &s, int left_index, int rigth_index) {
+		int left = left_index;
+		int right = rigth_index;
+		int len = s.size();
+
+		while (left >= 0 && right < len && s[left] == s[right]) {
+			left--;
+			right++;
+		}
+
+		return s.substr(left + 1, right - left - 1);
+	}
+			
+	string longestPalindromeEC(string s) {
+		int n = s.size();
+		string longest_substr = s.substr(0, 1);
+		int max_len = 1;
+
+		for (int i = 0;i < n - 1; ++i) {
+			string str1 = ExpandAroundCenter(s, i, i);
+
+			if (str1.size() > longest_substr.size()) {
+				longest_substr = str1;
+			}
+
+			string str2 = ExpandAroundCenter(s, i, i + 1);
+			if (str2.size() > longest_substr.size()) {
+				longest_substr = str2;
+			}
+		}
+
+		return longest_substr;
+	}
+
+	/*
+	 */
+	string longestPalindrome(string s) {
 	}
 };
 
